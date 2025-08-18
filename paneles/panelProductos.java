@@ -6,20 +6,20 @@ import java.awt.*;
 public class panelProductos extends JPanel {
 
     public panelProductos() {
-        setLayout(new GridLayout(2, 4, 10, 10)); // 2 filas, 4 columnas, 10px de espacio
-        setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        setLayout(new BorderLayout());
 
-        // Ejemplo: 8 cuadritos
-        for (int i = 1; i <= 8; i++) {
-            JPanel cuadrito = new JPanel();
-            cuadrito.setBorder(BorderFactory.createLineBorder(Color.BLUE, 2));
-            cuadrito.setBackground(Color.WHITE);
-            cuadrito.setLayout(new BorderLayout());
+        JLabel lblProducto = new JLabel("Producto");
+        lblProducto.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
-            JLabel nombre = new JLabel("Producto " + i, SwingConstants.CENTER);
-            cuadrito.add(nombre, BorderLayout.CENTER);
-
-            add(cuadrito);
+        JPanel grid = new JPanel(new GridLayout(2, 4, 10, 10));
+        for (int i = 0; i < 8; i++) {
+            JPanel producto = new JPanel();
+            producto.setPreferredSize(new Dimension(100, 100));
+            producto.setBorder(BorderFactory.createLineBorder(Color.RED));
+            grid.add(producto);
         }
+
+        add(lblProducto, BorderLayout.NORTH);
+        add(grid, BorderLayout.CENTER);
     }
 }

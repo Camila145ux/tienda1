@@ -9,13 +9,26 @@ public class panelBuscar extends JPanel {
     public JButton btnBuscar;
 
     public panelBuscar() {
-        setLayout(new FlowLayout(FlowLayout.LEFT));
+        setLayout(new BorderLayout());
+        setPreferredSize(new Dimension(180, 750));
+        setBackground(Color.YELLOW);
 
-        txtBuscar = new JTextField(20);
-        btnBuscar = new JButton("Buscar");
+        //titulo
+        JLabel TBuscar = new JLabel("Buscar Producto:");
+        add(TBuscar, BorderLayout.NORTH);
 
-        add(new JLabel("Buscar Producto:"));
-        add(txtBuscar);
-        add(btnBuscar);
+        //texto
+        JPanel inputPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        inputPanel.setBackground(Color.YELLOW);
+
+        txtBuscar = new JTextField();
+        txtBuscar.setPreferredSize(new Dimension(160, 25));
+        inputPanel.add(txtBuscar);
+
+        add(inputPanel, BorderLayout.CENTER);
+    }
+
+    public JTextField getTxtBuscar() {
+        return txtBuscar;
     }
 }
