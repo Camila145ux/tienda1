@@ -5,21 +5,25 @@ import java.awt.*;
 
 public class panelProductos extends JPanel {
 
-    public panelProductos() {
+    public panelProductos(String ListaDeProductos) {
+
         setLayout(new BorderLayout());
 
-        JLabel lblProducto = new JLabel("Producto");
-        lblProducto.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        JLabel titulo = new JLabel("Productos:");
+        titulo.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        add(titulo, BorderLayout.NORTH);
 
         JPanel grid = new JPanel(new GridLayout(2, 4, 10, 10));
-        for (int i = 0; i < 8; i++) {
+        String[] productos = ListaDeProductos.split(",");
+
+        for (String nombre : productos) {
             JPanel producto = new JPanel();
             producto.setPreferredSize(new Dimension(100, 100));
             producto.setBorder(BorderFactory.createLineBorder(Color.RED));
+            producto.add(new JLabel(nombre.trim()));
             grid.add(producto);
         }
 
-        add(lblProducto, BorderLayout.NORTH);
         add(grid, BorderLayout.CENTER);
     }
 }
