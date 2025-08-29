@@ -10,19 +10,16 @@ import views.Dashboard;
 public class Main {
     public static void main(String[] args) {
         
-        new Dashboard("Pan,Leche,Queso,Café,Azúcar,Arroz,Frijoles,Aceite");
         try{
 
             //conlsulta
-            String urlApi = "https://jsonplaceholder.typicode.com/posts";
+            String urlApi = "https://jsonplaceholder.typicode.com/posts/99";
             String respuesta = TiendaFecher.obtenerProductos(urlApi);
             System.out.println("respuesta de la API");
 
             for(int i = 0; i< respuesta.length(); i++) {
-            String letra ="" + respuesta.charAt(i);
-            if (letra.equalsIgnoreCase("}")) {
-                System.out.println(respuesta.charAt(i));
-            }
+                System.out.print(respuesta.charAt(i));
+            
             
         }
 
